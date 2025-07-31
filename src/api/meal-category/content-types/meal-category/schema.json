@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meal_categories",
+  "info": {
+    "singularName": "meal-category",
+    "pluralName": "meal-categories",
+    "displayName": "Meal Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

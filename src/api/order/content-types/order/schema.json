@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_number": {
+      "type": "string",
+      "required": true,
+      "maxLength": 15,
+      "minLength": 9,
+      "unique": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::store.store"
+    },
+    "effective_order_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "order_items": {
+      "type": "json",
+      "required": true
+    },
+    "order_cancelled_items": {
+      "type": "json",
+      "required": true
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "created",
+        "timeout",
+        "paid",
+        "ready_for_pickup",
+        "completed",
+        "canceled"
+      ],
+      "required": true,
+      "default": "created"
+    },
+    "cancellation_reason": {
+      "type": "enumeration",
+      "enum": [
+        "customer canceled",
+        "store has no surplus",
+        "store cannot fulfill dietary restriction"
+      ]
+    },
+    "order_value": {
+      "type": "decimal"
+    }
+  }
+}
