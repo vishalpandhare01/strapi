@@ -42,7 +42,7 @@ export default factories.createCoreController('api::order.order', ({ strapi }) =
                     }
                 },
                 orderBy: { createdAt: 'DESC' },
-                offset: page,
+                offset: (page - 1) * pageSize,
                 limit: pageSize,
             });
 
@@ -96,7 +96,7 @@ export default factories.createCoreController('api::order.order', ({ strapi }) =
                     }
                 },
                 orderBy: { createdAt: 'DESC' },
-                offset: page,
+                offset: (page - 1) * pageSize,
                 limit: pageSize,
             });
 
